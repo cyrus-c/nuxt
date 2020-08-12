@@ -15,6 +15,18 @@
       <el-button @click="addData()" type="primary">insertOne</el-button>
       <el-button @click="addMultipleData()" type="primary">insertMany</el-button>
       <el-button @click="search()" type="primary">search</el-button>
+      <el-upload
+        class="upload-demo"
+        action="/api/homelist/upload"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :before-remove="beforeRemove"
+        multiple
+        :limit="3"
+        :on-exceed="handleExceed"
+        :file-list="fileList">
+        <el-button size="small" type="primary">点击上传</el-button>
+      </el-upload>
 
     </div>
   </div>
@@ -30,7 +42,8 @@ export default {
   },
   data () {
     return {
-      baseData:[]
+      baseData:[],
+      fileList:[]
     }
   },
   created() {
@@ -41,9 +54,10 @@ export default {
   },
   methods:{
     getData() {
-      axios.get('/api/homelist').then(res => {
-          console.log(res.data);
-          this.baseData = res.data
+      axios.get('/api/homelist/list').then(res => {
+          if(res.data.code == 200){
+            this.baseData = res.data.data
+          }
       })
     },
     search(){
@@ -111,6 +125,18 @@ export default {
             this.getData()
           }
       })
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList);
+    },
+    handlePreview(file) {
+      console.log(file);
+    },
+    handleExceed(files, fileList) {
+      this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
+    },
+    beforeRemove(file, fileList) {
+      return this.$confirm(`确定移除 ${ file.name }？`);
     }
   }
 

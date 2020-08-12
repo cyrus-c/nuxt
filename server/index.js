@@ -13,6 +13,7 @@ const app = express()
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 
+// 注册中间件
 app.use('/api',api)
 
 // Import and Set Nuxt.js options
@@ -43,3 +44,4 @@ async function start () {
   })
 }
 start()
+

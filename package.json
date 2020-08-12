@@ -19,14 +19,18 @@
   },
   "dependencies": {
     "axios": "^0.19.2",
+    "bl": "^4.0.2",
+    "bson": "^4.1.0",
     "cross-env": "^5.2.0",
     "denque": "^1.4.1",
     "element-ui": "^2.4.11",
     "express": "^4.16.4",
     "follow-redirects": "^1.13.0",
+    "formidable": "^1.2.2",
     "mongodb": "^3.6.0",
     "node-uuid": "^1.4.8",
     "nuxt": "^2.0.0",
+    "path": "^0.12.7",
     "require_optional": "^1.0.1"
   },
   "devDependencies": {

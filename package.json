@@ -1,0 +1,35 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "My peachy Nuxt.js project",
+  "author": "cyrus",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+    "build": "nuxt build",
+    "start": "cross-env NODE_ENV=production node server/index.js",
+    "pm2": "cross-env NODE_ENV=production pm2 start processes.json",
+    "generate": "nuxt generate"
+  },
+  "config": {
+    "nuxt": {
+      "host": "0.0.0.0",
+      "port": "7001"
+    }
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "cross-env": "^5.2.0",
+    "denque": "^1.4.1",
+    "element-ui": "^2.4.11",
+    "express": "^4.16.4",
+    "follow-redirects": "^1.13.0",
+    "mongodb": "^3.6.0",
+    "node-uuid": "^1.4.8",
+    "nuxt": "^2.0.0",
+    "require_optional": "^1.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

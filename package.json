@@ -1,42 +1,29 @@
 {
   "name": "demo",
   "version": "1.0.0",
-  "description": "My peachy Nuxt.js project",
+  "description": "My doozie Nuxt.js project",
   "author": "cyrus",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
     "start": "cross-env NODE_ENV=production node server/index.js",
-    "pm2": "cross-env NODE_ENV=production pm2 start processes.json",
-    "generate": "nuxt generate"
-  },
-  "config": {
-    "nuxt": {
-      "host": "0.0.0.0",
-      "port": "7001"
-    }
+    "generate": "nuxt generate",
+    "test": "jest"
   },
   "dependencies": {
-    "axios": "^0.19.2",
-    "bl": "^4.0.2",
-    "bson": "^4.1.0",
-    "cross-env": "^5.2.0",
-    "denque": "^1.4.1",
-    "element-ui": "^2.4.11",
-    "express": "^4.16.4",
-    "express-session": "^1.17.1",
-    "follow-redirects": "^1.13.0",
-    "formidable": "^1.2.2",
-    "memory-cache": "^0.2.0",
-    "mongodb": "^3.6.0",
-    "node-uuid": "^1.4.8",
     "nuxt": "^2.0.0",
-    "path": "^0.12.7",
-    "require_optional": "^1.0.1",
-    "session-file-store": "^1.4.0"
+    "cross-env": "^5.2.0",
+    "express": "^4.16.4",
+    "element-ui": "^2.4.11"
   },
   "devDependencies": {
-    "nodemon": "^1.18.9"
+    "nodemon": "^1.18.9",
+    "@nuxt/typescript-build": "^0.6.0",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-jest": "^24.1.0",
+    "jest": "^24.1.0",
+    "vue-jest": "^4.0.0-0",
+    "ts-jest": "^25.0.0"
   }
 }

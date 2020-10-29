@@ -1,6 +1,6 @@
 # demo
 
-> My peachy Nuxt.js project
+> My doozie Nuxt.js project
 
 ## Build Setup
 

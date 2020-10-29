@@ -35,16 +35,13 @@ module.exports = {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@nuxt/typescript-build',
   ],
   /*
   ** Nuxt.js modules
   */
   modules: [
   ],
-  axios: {
-      prefix: '/api/',
-      proxy: true // Can be also an object with default options
-  },
   /*
   ** Build configuration
   */

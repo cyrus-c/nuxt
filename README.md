@@ -20,3 +20,6 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+
+打包生成文件上传：.nuxt、server、static、nuxt.config.js、package.json，再加上processes.json

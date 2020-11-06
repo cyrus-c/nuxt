@@ -60,7 +60,7 @@ MongoClient.connect(url,function(err,client){
     })
 
     // login
-    app.post('/homelist/login',async function(req,res,next){
+    app.post('/homelist/login', function(req,res,next){
         var sess = req.session;
         var user = findUser(req.body.name, req.body.password);
         // console.log(user);
@@ -122,22 +122,22 @@ MongoClient.connect(url,function(err,client){
     // search data
     app.get('/homelist/list',function(req,res,next){
         // 将找到的结果按照_id排序，取前10个，通过res.json传到前端
-        // res.header('Access-Control-Allow-Origin', '*') //解决跨域问题
+        res.header('Access-Control-Allow-Origin', '*') //解决跨域问题
         col.find({}).sort({"_id":-1}).limit(10).toArray(function(err,items){
             const responseData = {
                 code:200,
-                msg:"search successful",
+                msg:"search successful2",
                 data:items
             }
             res.send(responseData)
         })
     })
-
+  
     // insertOne
-    app.post('/homelist/add',async function(req,res,next){
+    app.post('/homelist/add', function(req,res,next){
         const uid = _uuid.v4();
         const data = {
-            userName : req.body.userName,
+            userName : req.body.userName, 
             uuid:uid
         }
         col.insertOne(data, (err, result) => {
@@ -151,7 +151,7 @@ MongoClient.connect(url,function(err,client){
     })
 
     // insertMany
-    app.post('/homelist/addMultiple',async function(req,res,next){
+    app.post('/homelist/addMultiple', function(req,res,next){
         const data = req.body
         // console.log(data);
         for (const item in data) {
@@ -172,7 +172,7 @@ MongoClient.connect(url,function(err,client){
     })
 
     // updateOne
-    app.post('/homelist/update',async function(req,res,next){
+    app.post('/homelist/update', function(req,res,next){
         const uuid = req.body.uuid
         const newdata = req.body.newData
         col.updateOne({ "uuid": uuid }, { $set: { "userName": newdata}}, (err, result) => {
@@ -186,7 +186,7 @@ MongoClient.connect(url,function(err,client){
     })
 
     // deleteOne
-    app.post('/homelist/delete',async function(req,res,next){
+    app.post('/homelist/delete', function(req,res,next){
         const uuid = req.body.uuid
         col.deleteOne({ "uuid": uuid }, (err, result) => {
             if (err) throw err
@@ -199,7 +199,7 @@ MongoClient.connect(url,function(err,client){
     })
 
     // upload
-    app.post('/homelist/upload',async function(req,res,next){
+    app.post('/homelist/upload', function(req,res,next){
         var form = new formidable.IncomingForm()
         form.uploadDir = "./static/img"
         form.keepExtensions = true

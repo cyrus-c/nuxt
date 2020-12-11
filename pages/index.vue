@@ -1,5 +1,5 @@
 <template>
-  <div>tt
+  <div>
     <div>
       <ul>
         <li v-for="(item) in baseData" :key="item._id" >

@@ -63,9 +63,6 @@ export default {
   methods:{
     practice(){
 
-  
-
-
     },
     getData() {
       axios.get('/api/homelist/list').then(res => {
@@ -78,7 +75,7 @@ export default {
       this.getData()
     },
     addData() {
-      var param = {
+      const param = {
         userName: "cc",
       }
       axios.post('/api/homelist/add',param).then(res => {
@@ -93,12 +90,12 @@ export default {
       })
     },
     addMultipleData(){
-      var param = [
+      const param = [
           { userName: 'c1'},
           { userName: 'c2'},
           { userName: 'c3'}
       ]
-      axios.post('/api/homelist/addMultiple',param).then(res => {
+      axios.post('/api/homelist/addMultiple',param).then(res => { 
           console.log(res);
           if(res.data.code == 200){
             this.$message({
@@ -110,7 +107,7 @@ export default {
       })
     },
     updateData(val){
-      var param = {
+      const param = {
         uuid: val.uuid,
         newData:'new-'+val.userName
       }
@@ -126,7 +123,7 @@ export default {
       })
     },
     deleteData(val){
-      var param = {
+      const param = {
         uuid: val.uuid
       }
       axios.post('/api/homelist/delete',param).then(res => {
@@ -155,7 +152,7 @@ export default {
     },
     // login
     login(){
-      var param = {
+      const param = {
         name : 'cc',
         password:'123456'
       }

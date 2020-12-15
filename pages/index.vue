@@ -39,11 +39,13 @@
   </div>
 </template>
        
-<script>
+<script lang="ts">
+import Vue from 'vue'
 import Logo from '~/components/Logo.vue'
 import axios from 'axios';
 
-export default {
+export default Vue.extend({
+  name: 'test',
   components: {
     Logo
   },
@@ -62,6 +64,9 @@ export default {
   },
   methods:{
     practice(){
+
+  
+
 
     },
     getData() {
@@ -95,7 +100,7 @@ export default {
           { userName: 'c2'},
           { userName: 'c3'}
       ]
-      axios.post('/api/homelist/addMultiple',param).then(res => { 
+      axios.post('/api/homelist/addMultiple',param).then(res => {
           console.log(res);
           if(res.data.code == 200){
             this.$message({
@@ -106,7 +111,7 @@ export default {
           }
       })
     },
-    updateData(val){
+    updateData(val: any){
       const param = {
         uuid: val.uuid,
         newData:'new-'+val.userName
@@ -122,7 +127,7 @@ export default {
           }
       })
     },
-    deleteData(val){
+    deleteData(val: any){
       const param = {
         uuid: val.uuid
       }
@@ -138,16 +143,16 @@ export default {
       })
     },
     // upload
-    handleRemove(file, fileList) {
+    handleRemove(file: any, fileList: any) {
       console.log(file, fileList);
     },
-    handlePreview(file) {
+    handlePreview(file: any) {
       console.log(file);
     },
-    handleExceed(files, fileList) {
+    handleExceed(files: any, fileList: any) {
       this.$message.warning(`当前限制选择 3 个文件，本次选择了 ${files.length} 个文件，共选择了 ${files.length + fileList.length} 个文件`);
     },
-    beforeRemove(file, fileList) {
+    beforeRemove(file: any, fileList: any) {
       return this.$confirm(`确定移除 ${ file.name }？`);
     },
     // login
@@ -210,7 +215,7 @@ export default {
 
 
 
-}
+})
 </script>
 
 <style>
